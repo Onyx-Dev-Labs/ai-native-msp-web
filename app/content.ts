@@ -29,11 +29,24 @@ export const included = [
   {
     title: "What’s free",
     body: "Start Here, a dated library of real Inman use cases, and the community rooms.",
+    // Same words as `body`, split into list items.
+    items: [
+      "Start Here",
+      "a dated library of real Inman use cases",
+      "the community rooms",
+    ],
     tier: "free",
   },
   {
     title: "What’s in Premium",
     body: "Operations playbooks, the New Revenue with AI path, the skills and SOP vault, plus office hours and session recordings.",
+    // Same words as `body`, split into list items.
+    items: [
+      "Operations playbooks",
+      "the New Revenue with AI path",
+      "the skills and SOP vault",
+      "office hours and session recordings",
+    ],
     tier: "premium",
   },
 ] as const;

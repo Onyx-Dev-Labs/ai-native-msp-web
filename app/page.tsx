@@ -1,5 +1,17 @@
-import { CommunityLink } from "./components/CommunityLink";
+/* eslint-disable @next/next/no-img-element */
+import { Lockup } from "./components/Brand";
+import { JoinButton } from "./components/JoinButton";
+import { SignalTrace, TrackGlyph } from "./components/Signal";
 import { aboutSean, finalCta, hero, included, tracks } from "./content";
+
+const [headlineA, headlineB] = splitHeadline(hero.headline);
+
+function splitHeadline(text: string): [string, string] {
+  const i = text.indexOf(". ");
+  return i === -1 ? [text, ""] : [text.slice(0, i + 1), text.slice(i + 2)];
+}
+
+const pad = (n: number) => String(n).padStart(2, "0");
 
 export default function Home() {
   return (
@@ -9,9 +21,9 @@ export default function Home() {
       </a>
 
       <header className="site-header">
-        <div className="container header-inner">
-          <a className="wordmark" href="#top">
-            AI Native MSP
+        <div className="wrap header-inner">
+          <a className="brand-link" href="#top" aria-label="AI Native MSP, home">
+            <Lockup tagline />
           </a>
           <nav aria-label="Primary" className="nav">
             <a href="#tracks">Tracks</a>
@@ -22,90 +34,163 @@ export default function Home() {
       </header>
 
       <main id="main">
+        {/* Hero */}
         <section id="top" className="hero" aria-labelledby="hero-title">
-          <div className="container">
-            <h1 id="hero-title">{hero.headline}</h1>
-            <p className="lede">{hero.subhead}</p>
-            <div className="hero-actions">
-              <CommunityLink>{hero.ctaLabel}</CommunityLink>
+          <div className="hero-texture" aria-hidden="true" />
+          <div className="wrap hero-grid">
+            <div className="hero-copy">
+              <p className="kicker">
+                <span className="kicker-dot" aria-hidden="true" />
+                AI Native MSP <span aria-hidden="true">/</span> Inman Technologies
+              </p>
+              <h1 id="hero-title" className="hero-title">
+                <span className="hero-line">{headlineA}</span>{" "}
+                <span className="hero-line hero-line-accent">{headlineB}</span>
+              </h1>
+              <p className="hero-sub">{hero.subhead}</p>
+              <div className="hero-cta">
+                <JoinButton label={hero.ctaLabel} />
+              </div>
+              <p className="hero-upgrade">
+                <span className="chip chip-solid">Premium</span>
+                <span>{hero.secondary}</span>
+              </p>
             </div>
-            <p className="hero-secondary">{hero.secondary}</p>
+
+            <div className="console" aria-hidden="true">
+              <div className="console-bar">
+                <span className="console-dots">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className="mono-label">ai-native-msp</span>
+              </div>
+              <SignalTrace className="console-trace" />
+              <ol className="console-tracks">
+                {tracks.map((t, i) => (
+                  <li key={t.title}>
+                    <span className="mono-label">Track {pad(i + 1)}</span>
+                    <span className="console-track-title">{t.title}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
 
-        <section id="tracks" className="section" aria-labelledby="tracks-title">
-          <div className="container">
-            <h2 id="tracks-title" className="section-title">
-              Two tracks
-            </h2>
-            <ol className="card-grid">
-              {tracks.map((track, i) => (
-                <li key={track.title} className="card">
-                  <span className="card-index" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="card-body">
-                    <strong className="card-lead">{track.title}:</strong>{" "}
-                    {track.body}
-                  </p>
+        {/* Two tracks */}
+        <section id="tracks" className="band band-surface" aria-labelledby="tracks-title">
+          <div className="wrap">
+            <header className="section-head">
+              <p className="kicker kicker-index">01</p>
+              <h2 id="tracks-title" className="section-title">
+                Two tracks
+              </h2>
+            </header>
+            <ol className="tracks">
+              {tracks.map((t, i) => (
+                <li key={t.title} className={`track track-${i === 0 ? "run" : "grow"}`}>
+                  <div className="track-top">
+                    <span className="mono-label">Track {pad(i + 1)}</span>
+                    <span className="track-num" aria-hidden="true">
+                      {pad(i + 1)}
+                    </span>
+                  </div>
+                  <TrackGlyph variant={i === 0 ? "run" : "grow"} />
+                  <h3 className="track-title">
+                    {t.title}
+                    <span className="track-colon">:</span>
+                  </h3>{" "}
+                  <p className="track-body">{t.body}</p>
                 </li>
               ))}
             </ol>
           </div>
         </section>
 
-        <section
-          id="about"
-          className="section section-muted"
-          aria-labelledby="about-title"
-        >
-          <div className="container about">
-            <h2 id="about-title" className="section-title">
-              About Sean
-            </h2>
+        {/* About Sean */}
+        <section id="about" className="band band-paper" aria-labelledby="about-title">
+          <div className="wrap about">
+            <div className="about-side">
+              <p className="kicker kicker-index">02</p>
+              <h2 id="about-title" className="section-title">
+                About Sean
+              </h2>
+              <figure className="inman-card">
+                <img
+                  src="/inman-technologies-logo.svg"
+                  alt="Inman Technologies"
+                  width={1123}
+                  height={281}
+                  className="inman-logo"
+                />
+              </figure>
+            </div>
             <p className="about-text">{aboutSean}</p>
           </div>
         </section>
 
-        <section
-          id="included"
-          className="section"
-          aria-labelledby="included-title"
-        >
-          <div className="container">
-            <h2 id="included-title" className="section-title">
-              What’s included
-            </h2>
-            <div className="card-grid">
-              {included.map((item) => (
+        {/* What's included */}
+        <section id="included" className="band band-surface" aria-labelledby="included-title">
+          <div className="wrap">
+            <header className="section-head">
+              <p className="kicker kicker-index">03</p>
+              <h2 id="included-title" className="section-title">
+                What’s included
+              </h2>
+            </header>
+            <div className="plans">
+              {included.map((plan) => (
                 <article
-                  key={item.title}
-                  className={
-                    item.tier === "premium" ? "card card-premium" : "card"
-                  }
+                  key={plan.title}
+                  className={`plan plan-${plan.tier}`}
+                  aria-labelledby={`plan-${plan.tier}`}
                 >
-                  <h3 className="card-title">{item.title}</h3>
-                  <p className="card-body">{item.body}</p>
+                  <span className={`chip ${plan.tier === "premium" ? "chip-solid" : "chip-soft"}`}>
+                    {plan.tier === "premium" ? "Premium" : "Free"}
+                  </span>
+                  <h3 id={`plan-${plan.tier}`} className="plan-title">
+                    {plan.title}
+                  </h3>
+                  <ol className="plan-list">
+                    {plan.items.map((item, i) => (
+                      <li key={item}>
+                        <span className="plan-n" aria-hidden="true">
+                          {pad(i + 1)}
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ol>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="final-cta" aria-labelledby="final-title">
-          <div className="container final-inner">
-            <h2 id="final-title" className="final-line">
+        {/* Final CTA */}
+        <section className="closing" aria-labelledby="closing-title">
+          <SignalTrace className="closing-trace" />
+          <div className="wrap closing-inner">
+            <h2 id="closing-title" className="closing-line">
               {finalCta.line}
             </h2>
-            <CommunityLink>{finalCta.ctaLabel}</CommunityLink>
+            <JoinButton label={finalCta.ctaLabel} />
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
-        <div className="container footer-inner">
-          <span className="wordmark wordmark-small">AI Native MSP</span>
-          <span>Inman Technologies</span>
+        <div className="wrap footer-inner">
+          <Lockup />
+          <img
+            src="/inman-technologies-logo.svg"
+            alt="Inman Technologies"
+            width={1123}
+            height={281}
+            className="footer-inman"
+          />
         </div>
       </footer>
     </>
