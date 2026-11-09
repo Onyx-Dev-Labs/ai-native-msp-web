@@ -360,14 +360,18 @@ a:hover {
 .hero-grid {
   position: relative;
   display: grid;
-  gap: 44px;
+  gap: 28px;
+}
+
+.hero-grid .console {
+  margin-top: 16px;
 }
 
 .hero-title {
   margin-top: 22px;
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(2.75rem, 9vw, 5.25rem);
+  font-size: clamp(2.75rem, 6.6vw, 5.25rem);
   line-height: 0.98;
   letter-spacing: -0.045em;
 }
@@ -382,7 +386,6 @@ a:hover {
 
 .hero-sub {
   max-width: 34ch;
-  margin-top: 24px;
   font-size: clamp(1.1875rem, 2.4vw, 1.4375rem);
   line-height: 1.45;
   color: var(--soft);
@@ -808,12 +811,12 @@ a:hover {
 
 .closing-trace {
   position: absolute;
-  right: -60px;
-  bottom: -30px;
-  width: 560px;
-  max-width: 120%;
+  top: 20px;
+  right: -48px;
+  display: none;
+  width: 440px;
   height: auto;
-  opacity: 0.22;
+  opacity: 0.18;
   pointer-events: none;
 }
 
@@ -905,13 +908,25 @@ a:hover {
   .closing {
     padding: 112px 0;
   }
+
+  .closing-trace {
+    display: block;
+  }
 }
 
 @media (min-width: 1040px) {
   .hero-grid {
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
-    gap: 64px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 48px 72px;
     align-items: center;
+  }
+
+  .hero-head {
+    grid-column: 1 / -1;
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 6.2vw, 5.25rem);
   }
 
   .about {

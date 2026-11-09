@@ -38,7 +38,7 @@ export default function Home() {
         <section id="top" className="hero" aria-labelledby="hero-title">
           <div className="hero-texture" aria-hidden="true" />
           <div className="wrap hero-grid">
-            <div className="hero-copy">
+            <div className="hero-head">
               <p className="kicker">
                 <span className="kicker-dot" aria-hidden="true" />
                 AI Native MSP <span aria-hidden="true">/</span> Inman Technologies
@@ -47,6 +47,8 @@ export default function Home() {
                 <span className="hero-line">{headlineA}</span>{" "}
                 <span className="hero-line hero-line-accent">{headlineB}</span>
               </h1>
+            </div>
+            <div className="hero-copy">
               <p className="hero-sub">{hero.subhead}</p>
               <div className="hero-cta">
                 <JoinButton label={hero.ctaLabel} />
@@ -100,8 +102,8 @@ export default function Home() {
                   <TrackGlyph variant={i === 0 ? "run" : "grow"} />
                   <h3 className="track-title">
                     {t.title}
-                    <span className="track-colon">:</span>
-                  </h3>{" "}
+                    <span className="track-colon">:</span>{" "}
+                  </h3>
                   <p className="track-body">{t.body}</p>
                 </li>
               ))}
