@@ -52,6 +52,7 @@ export default function Home() {
 
       <main id="main">
         <section id="top" className="hero dark" aria-labelledby="hero-title">
+          <BrandMark size={560} className="hero-mark" />
           <div className="wrap hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">
