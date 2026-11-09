@@ -7,7 +7,7 @@ export const PREMIUM_PRICE = "$99.99";
 export const hero = {
   headline: "Run a tighter MSP with AI. Offer it to clients you know.",
   subhead:
-    "A school for MSP owners and operators, taught by someone who runs one.",
+    "A Skool for MSP owners and operators, taught by someone who runs one.",
   ctaLabel: "Join the free community",
   secondary:
     "When you’re ready to turn AI into additional revenue, upgrade to Premium inside the community — $99.99 a month. No second group to join.",

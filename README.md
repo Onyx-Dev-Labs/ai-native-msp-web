@@ -1,6 +1,6 @@
 # AI Native MSP
 
-Marketing website for **AI Native MSP**, an Inman Technologies school for MSP owners and operators.
+Marketing website for **AI Native MSP**, an Inman Technologies Skool for MSP owners and operators.
 
 The site is a single static page that points visitors to the free AI Native MSP community on Skool, with Premium available as an upgrade inside that community.
 
