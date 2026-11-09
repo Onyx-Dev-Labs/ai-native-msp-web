@@ -1,46 +1,34 @@
 type MarkProps = { size?: number; className?: string };
 
-/**
- * AI Native MSP mark: a monitoring trace that spells "Ai" —
- * a flat baseline, an A-shaped peak, then a stem capped with a live node.
- */
-export function BrandMark({ size = 36, className }: MarkProps) {
+/** The "Ai" mark, traced from the brand logo: a steel A and a light-steel i. */
+export function BrandMark({ size = 32, className }: MarkProps) {
   return (
     <svg
       className={className}
-      width={size}
+      width={(size * 244) / 209}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox="0 0 244 209"
       aria-hidden="true"
       focusable="false"
     >
-      <rect width="40" height="40" rx="10" fill="#2B6CB0" />
       <path
-        d="M6 28H10L16 11L22 28H28V19"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="3.2"
-        strokeLinejoin="round"
-        strokeLinecap="round"
+        fill="#47789A"
+        fillRule="evenodd"
+        d="M91 35H154L236 209H179L163 171H74L57 209H0ZM121.3 80.8L147.5 138H91.5Z"
       />
-      <circle cx="28" cy="12" r="2.9" fill="#fff" />
+      <path fill="#80A5B8" d="M196 0H243V41H196ZM195 57H244V204L195 101Z" />
     </svg>
   );
 }
 
-type LockupProps = { tone?: "ink" | "paper"; tagline?: boolean };
+type LockupProps = { tone?: "ink" | "paper"; size?: number };
 
-export function Lockup({ tone = "ink", tagline = false }: LockupProps) {
+export function Lockup({ tone = "ink", size = 30 }: LockupProps) {
   return (
     <span className={`lockup lockup-${tone}`}>
-      <BrandMark className="lockup-mark" />
-      <span className="lockup-text">
-        <span className="lockup-name">
-          AI Native <span className="lockup-msp">MSP</span>
-        </span>
-        {tagline ? (
-          <span className="lockup-tagline">Inman Technologies</span>
-        ) : null}
+      <BrandMark size={size} className="lockup-mark" />
+      <span className="lockup-name">
+        <b>AI Native</b> MSP
       </span>
     </span>
   );

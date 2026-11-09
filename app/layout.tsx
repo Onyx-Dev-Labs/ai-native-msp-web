@@ -1,27 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, DM_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import { hero } from "./content";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const sans = Geist({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
   display: "swap",
-  variable: "--font-display",
+  variable: "--font-sans",
 });
 
-const body = DM_Sans({
+const mono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-body",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["500", "600"],
   display: "swap",
   variable: "--font-mono",
+});
+
+// Wordmark only, to match the logo lettering.
+const wordmark = Montserrat({
+  subsets: ["latin"],
+  weight: ["500", "800"],
+  display: "swap",
+  variable: "--font-wordmark",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#0A1622",
   colorScheme: "light",
 };
 
@@ -51,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${sans.variable} ${mono.variable} ${wordmark.variable}`}
     >
       <body>{children}</body>
     </html>

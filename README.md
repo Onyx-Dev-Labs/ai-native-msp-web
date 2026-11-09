@@ -7,7 +7,7 @@ The site is a single static page that points visitors to the free AI Native MSP 
 ## Stack
 
 - [Next.js](https://nextjs.org) (App Router) + TypeScript
-- Plain CSS (`app/globals.css`), Inter via `next/font`
+- Plain CSS (`app/globals.css`), Geist, Geist Mono, and Montserrat (wordmark) via `next/font`
 - Statically prerendered; no backend, no client data
 
 Approved homepage copy lives in `app/content.ts`. Treat it as verbatim: changes need sign-off.

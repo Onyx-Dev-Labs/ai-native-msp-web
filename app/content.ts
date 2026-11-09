@@ -2,13 +2,15 @@
 
 export const COMMUNITY_URL = "https://www.skool.com/native-ai-msp-4948";
 
+export const PREMIUM_PRICE = "$99.99";
+
 export const hero = {
   headline: "Run a tighter MSP with AI. Offer it to clients you know.",
   subhead:
     "A school for MSP owners and operators, taught by someone who runs one.",
   ctaLabel: "Join the free community",
   secondary:
-    "When you’re ready to turn AI into additional revenue, upgrade to Premium inside the community — $79.99 a month. No second group to join.",
+    "When you’re ready to turn AI into additional revenue, upgrade to Premium inside the community — $99.99 a month. No second group to join.",
 };
 
 export const tracks = [
@@ -23,7 +25,29 @@ export const tracks = [
 ] as const;
 
 export const aboutSean =
-  "Sean Inman has spent more than two decades in technology and cybersecurity, working with local SMBs and larger enterprise environments. In 2017 he founded Inman Technologies, a Fort Worth managed IT and cybersecurity firm that helps construction, trades, and other small and midsize businesses stay secure and productive. He later started Onyx Dev Labs, a sister company focused on AI automations and industry software, including systems built around how an MSP actually operates. AI Native MSP is where he teaches other MSPs those two things: how to run a tighter operation with AI, and how to package AI for the book of business they already have.";
+  "Sean Inman has spent more than two decades in technology and cybersecurity, working with local SMBs and larger enterprise environments. In 2017 he founded Inman Technologies, a Fort Worth managed IT and cybersecurity firm that helps construction, trades, and other small and midsize businesses stay secure and productive. He also co-founded and runs Onyx Dev Labs, Inman’s sister company, which builds AI automations, AI employees, and custom business systems, including MSP OS, built around how an MSP actually operates. AI Native MSP is where he teaches other MSPs those two things: how to run a tighter operation with AI, and how to package AI for the book of business they already have.";
+
+// The two companies Sean runs. Onyx details are from onyxdev.io.
+export const companies = [
+  {
+    name: "Inman Technologies",
+    url: "https://inmantechnologies.com",
+    logo: { src: "/inman-technologies-logo.svg", width: 1123, height: 281 },
+    role: "Founder",
+    focus: "Managed IT and cybersecurity",
+    body: "Keeps construction, trades, and other small and midsize businesses secure and productive. The MSP behind the real use cases taught here.",
+    meta: ["Est. 2017", "Fort Worth, TX"],
+  },
+  {
+    name: "Onyx Dev Labs",
+    url: "https://onyxdev.io",
+    logo: { src: "/onyx-dev-labs-mark.png", width: 150, height: 192 },
+    role: "Co-Founder & CEO",
+    focus: "AI, automation, and business systems",
+    body: "AI assessments, process automations, AI employees, and custom business systems, including MSP OS. Built with operators, not for them.",
+    meta: ["Est. 2026", "Sister company to Inman Technologies"],
+  },
+] as const;
 
 export const included = [
   {
